@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bocchi The Glock</title>
+        <meta name="Bocchi The Glock" content="Use the Bocchi Glock 18 and experience an ultra firepower with Bocchi">
+        <meta name="Bocchi" content="Bocchi The Glock 18">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Bochhi The Glock | Inspired by AlmightyToastz on YT</h1>
+        <div class="container">
+            <div class="background-image">
+                <button id="playSoundButton" class="trigger" onclick="TriggerBocchi()"></button>
+            </div>
+        </div>
+
+        <audio id="sound">
+            <source src="sound.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </body>
+    <style>
+        body {
+            background-color: rgb(255, 147, 214);
+            overflow: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: normal;
+            text-decoration: underline;
+        }
+
+        .trigger {
+            position: absolute;
+            border: none;
+            background-color: transparent;
+            padding: 34px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            z-index: 999;
+            top: 56%; 
+            left: 55%; 
+            transform: translate(-50%, -50%);
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .background-image {
+            width: 5480px; 
+            height: 4508px; 
+            background-image: url(resfr/1.png);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        @keyframes headpatanim{
+            0%   {background-image: url(resfr/1.png);}
+            10%  {background-image: url(resfr/2.png);}
+            20%  {background-image: url(resfr/2.png);}
+            30%  {background-image: url(resfr/3.png);}
+            40%  {background-image: url(resfr/3.png);}
+            50%  {background-image: url(resfr/4.png);}
+            60%  {background-image: url(resfr/5.png);}
+            70%  {background-image: url(resfr/6.png);}
+            80%  {background-image: url(resfr/7.png);}
+            90%  {background-image: url(resfr/8.png);}
+        }
+
+        .gunshow{
+            animation-name: headpatanim;
+            animation-duration: 0.2s;
+        }
+
+    </style>
+    <script>
+        function TriggerBocchi(){
+            document.querySelector(".background-image").className = "background-image";
+            requestAnimationFrame((time) => {
+                requestAnimationFrame((time) => {
+                    document.querySelector(".background-image").className = "background-image gunshow";
+                });
+            });
+        }
+
+        // Function to play the sound
+        function playSound() {
+            // Play the sound
+            document.getElementById('sound').currentTime = 0; // Reset sound to start
+            document.getElementById('sound').play();
+        }
+
+        // Add event listener for mouse clicks
+        document.getElementById('playSoundButton').addEventListener('mousedown', playSound);
+
+        // Add event listener for touch events (for touchscreen devices)
+        document.getElementById('playSoundButton').addEventListener('touchstart', playSound);
+
+    </script>
+</html>
